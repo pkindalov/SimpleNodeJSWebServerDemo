@@ -1,7 +1,8 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
-const port = 1201;
+const favicon = '/favicon.ico';
+const port = 1202;
 
 http
     .createServer((req, res) => {
@@ -22,9 +23,9 @@ http
                 res.end();
 
             });
-        } else if(path === '/favicon.ico'){
+        } else if(path === favicon){
 
-            fs.readFile('./nodejs-256.ico', (err, data) => {
+            fs.readFile('.' + favicon, (err, data) => {
 
                 if(err){
                     console.log(err);
