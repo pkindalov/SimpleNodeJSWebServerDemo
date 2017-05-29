@@ -1,6 +1,6 @@
 const http = require('http');
 const url = require('url');
-const port = 1202;
+const port = 1203;
 
 
 const homePageHandler = require('./handlers/home-page');
@@ -19,7 +19,10 @@ http
 
 
         for(let handler of handlers){
-            
+            let next = handler(req, res);
+            if(!next){
+                break;
+            }
         }
 
     
