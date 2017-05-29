@@ -43,12 +43,34 @@ http
 
 
         }else{
-            res.writeHead(404, {
-                'Content-type':'text/plain'
+
+            fs.readFile('.' + path, (err, data) => {
+                if(err){
+                    res.writeHead(404, {
+                        'Content-type':'text/plain'
+                    });
+
+                    res.write('Resource not found');
+                    res.end();
+                }
+
+
+                let contentType = 'text/plain';
+                if(path.endsWith('.css')){
+                    contentType = 'text/css';
+                }else if(path.endsWith('.js')){
+                    contentType = 'application/javascript';
+                }
+
+
+                res.writeHead(200, {
+                    'Content-type': contentType
+                });
+                res.write(data);
+                res.end();
+
             });
 
-            res.write('Page not found');
-            res.end();
         }
     
     })
