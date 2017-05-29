@@ -19,5 +19,7 @@ module.exports = (req, res) => {
                 res.end();
 
             });
+    }else{
+        return true;
     }
 };
