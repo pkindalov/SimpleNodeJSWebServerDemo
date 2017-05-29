@@ -4,7 +4,7 @@ const faviconPath = '/favicon.ico';
 
 module.exports = (req, res) => {
     if(req.path === faviconPath){
-        fs.readFile('..' + favicon, (err, data) => {
+        fs.readFile('.' + faviconPath, (err, data) => {
 
                 if(err){
                     console.log(err);
