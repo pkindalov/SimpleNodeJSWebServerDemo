@@ -6,4 +6,4 @@ module.exports = [
      homePageHandler,
      faviconHandler,
      staticFilesHandler
-]
+];
