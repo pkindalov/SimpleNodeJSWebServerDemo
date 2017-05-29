@@ -6,23 +6,23 @@ const port = 1202;
 
 http
     .createServer((req, res) => {
-        let path = url.parse(req.url).pathname;
+        req.path = url.parse(req.url).pathname;
 
         if(path === '/'){
-            fs.readFile('./index.html', (err, data) => {
-                if(err){
-                    console.log(err);
-                    return;
-                }
+            // fs.readFile('./index.html', (err, data) => {
+            //     if(err){
+            //         console.log(err);
+            //         return;
+            //     }
 
-                res.writeHead(200, {
-                    'Content-type': 'text/html'
-                });
+            //     res.writeHead(200, {
+            //         'Content-type': 'text/html'
+            //     });
 
-                res.write(data);
-                res.end();
+            //     res.write(data);
+            //     res.end();
 
-            });
+            // });
         } else if(path === favicon){
 
             fs.readFile('.' + favicon, (err, data) => {
